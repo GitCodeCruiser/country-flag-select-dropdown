@@ -292,8 +292,8 @@
   </p>
   <div class="pills">
     <span class="pill"><span>✅</span> Zero dependencies</span>
-    <span class="pill"><span>🌍</span> 195 countries</span>
-    <span class="pill"><span>🏳</span> Emoji flags</span>
+    <span class="pill"><span>🌍</span> 253 countries</span>
+    <span class="pill"><span>🏳</span> PNG + Emoji flags</span>
     <span class="pill"><span>🔍</span> Searchable</span>
     <span class="pill"><span>🎯</span> Multi-select</span>
     <span class="pill"><span>📦</span> ESM + CJS + UMD</span>
@@ -314,8 +314,8 @@
   <div class="demos">
 
     <div class="card">
-      <div class="card-title">Single Select (default)</div>
-      <div class="card-desc">Click to open · type to search · returns country code</div>
+      <div class="card-title">Single Select</div>
+      <div class="card-desc">Click to open · type to search · returns country code · 253 countries</div>
       <div id="demo-single" class="demo-select"></div>
       <div class="output"><span class="label">onChange:</span><span id="out-single">—</span></div>
     </div>
@@ -535,9 +535,13 @@ select.<span class="fn">destroy</span>();         <span class="cm">// clean up D
       Array.isArray(val) ? JSON.stringify(val) : String(val);
   }
 
+  const FLAGS = 'https://flagcdn.com/24x18/{code}.png';
+
   // 1. Single select
   new CountryFlagSelect('#demo-single', {
     theme: 'light',
+    flagType: 'image',
+    imageUrl: FLAGS,
     onChange: v => show('out-single', v),
   });
 
@@ -545,6 +549,8 @@ select.<span class="fn">destroy</span>();         <span class="cm">// clean up D
   new CountryFlagSelect('#demo-long', {
     valueType: 'long',
     theme: 'light',
+    flagType: 'image',
+    imageUrl: FLAGS,
     onChange: v => show('out-long', v),
   });
 
@@ -552,6 +558,8 @@ select.<span class="fn">destroy</span>();         <span class="cm">// clean up D
   new CountryFlagSelect('#demo-multi', {
     multi: true,
     theme: 'light',
+    flagType: 'image',
+    imageUrl: FLAGS,
     onChange: v => show('out-multi', v),
   });
 
@@ -561,6 +569,8 @@ select.<span class="fn">destroy</span>();         <span class="cm">// clean up D
     maxItems: 3,
     placeholder: 'Select up to 3 countries...',
     theme: 'light',
+    flagType: 'image',
+    imageUrl: FLAGS,
     onChange: v => show('out-max', v),
   });
 
@@ -568,6 +578,8 @@ select.<span class="fn">destroy</span>();         <span class="cm">// clean up D
   new CountryFlagSelect('#demo-preset', {
     value: 'JP',
     theme: 'light',
+    flagType: 'image',
+    imageUrl: FLAGS,
     onChange: v => show('out-preset', v),
   });
 
@@ -575,18 +587,24 @@ select.<span class="fn">destroy</span>();         <span class="cm">// clean up D
   new CountryFlagSelect('#demo-filter', {
     include: ['US', 'GB', 'CA', 'AU', 'NZ'],
     theme: 'light',
+    flagType: 'image',
+    imageUrl: FLAGS,
     onChange: v => show('out-filter', v),
   });
 
   // 7. Dark theme
   new CountryFlagSelect('#demo-dark', {
     theme: 'dark',
+    flagType: 'image',
+    imageUrl: FLAGS,
     onChange: v => show('out-dark', v),
   });
 
   // 8. API control
   window.apiDemo = new CountryFlagSelect('#demo-api', {
     theme: 'light',
+    flagType: 'image',
+    imageUrl: FLAGS,
     onChange: v => show('out-api', v),
   });
 
