@@ -8,9 +8,11 @@
 A **lightweight, zero-dependency** country selector dropdown with emoji flags.  
 Works everywhere — Vanilla JS, React, Vue, or any framework.
 
+![country-flag-select preview](https://raw.githubusercontent.com/GitCodeCruiser/country-flag-select-dropdown/main/preview.png)
+
 - ✅ **Zero dependencies** — no jQuery, no moment, nothing
-- 🌍 **195 countries** with ISO 3166-1 alpha-2 codes
-- 🏳 **Emoji flags** — no images, no CDNs, just Unicode
+- 🌍 **253 countries & territories** with ISO codes (inc. England, Kosovo, Hong Kong & more)
+- 🏳 **Emoji flags** + **254 bundled PNG flags** included
 - 🔍 **Searchable** — instant filter as you type
 - 🎯 **Multi-select** — with removable tags
 - 🌙 **Dark mode** — auto-detects system preference
@@ -88,7 +90,8 @@ const country = ref(null);
 |--------|------|---------|-------------|
 | `multi` | `boolean` | `false` | Enable multi-select mode |
 | `valueType` | `'short'\|'long'` | `'short'` | Return ISO code (`'US'`) or full name (`'United States'`) |
-| `flagType` | `'emoji'\|'image'\|'none'` | `'emoji'` | How to render flags |
+| `flagType` | `'emoji'\|'image'\|'png'\|'none'` | `'emoji'` | How to render flags |
+| `flagsPath` | `string` | `null` | Base path to bundled PNG flags (when `flagType: 'png'`) |
 | `value` | `string\|string[]` | `null` | Initial selected value(s) |
 | `placeholder` | `string` | `'Select a country...'` | Placeholder text |
 | `searchable` | `boolean` | `true` | Show search input |
