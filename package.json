@@ -1,0 +1,63 @@
+{
+  "name": "country-flag-select",
+  "version": "1.0.0",
+  "description": "A lightweight, zero-dependency country selector dropdown with emoji flags. Works with Vanilla JS, React, Vue, and any framework.",
+  "keywords": [
+    "country", "select", "dropdown", "flag", "flags", "countries",
+    "country-select", "country-selector", "flag-select", "country-dropdown",
+    "country-picker", "emoji-flag", "world-countries", "vanilla-js",
+    "react-country-select", "vue-country-select"
+  ],
+  "homepage": "https://github.com/GitCodeCruiser/country-flag-select-dropdown#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GitCodeCruiser/country-flag-select-dropdown.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "browser": "./dist/index.umd.js"
+    },
+    "./react": {
+      "import": "./dist/react.esm.js",
+      "require": "./dist/react.cjs.js"
+    },
+    "./vue": {
+      "import": "./dist/vue.esm.js",
+      "require": "./dist/vue.cjs.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist",
+    "types",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^3.29.4"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "vue": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": { "optional": true },
+    "vue": { "optional": true }
+  },
+  "sideEffects": ["dist/style.css"]
+}
