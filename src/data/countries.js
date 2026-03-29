@@ -1,5 +1,4 @@
 export const COUNTRIES = [
-  { code: 'AC', name: 'Ascension Island' },
   { code: 'AD', name: 'Andorra' },
   { code: 'AE', name: 'United Arab Emirates' },
   { code: 'AF', name: 'Afghanistan' },
