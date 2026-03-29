@@ -1,12 +1,24 @@
 {
   "name": "country-flag-select",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A lightweight, zero-dependency country selector dropdown with emoji flags. Works with Vanilla JS, React, Vue, and any framework.",
   "keywords": [
-    "country", "select", "dropdown", "flag", "flags", "countries",
-    "country-select", "country-selector", "flag-select", "country-dropdown",
-    "country-picker", "emoji-flag", "world-countries", "vanilla-js",
-    "react-country-select", "vue-country-select"
+    "country",
+    "select",
+    "dropdown",
+    "flag",
+    "flags",
+    "countries",
+    "country-select",
+    "country-selector",
+    "flag-select",
+    "country-dropdown",
+    "country-picker",
+    "emoji-flag",
+    "world-countries",
+    "vanilla-js",
+    "react-country-select",
+    "vue-country-select"
   ],
   "homepage": "https://github.com/GitCodeCruiser/country-flag-select-dropdown#readme",
   "repository": {
@@ -43,21 +55,29 @@
   ],
   "scripts": {
     "build": "rollup -c",
+    "postbuild": "node -e \"const fs=require('fs');fs.mkdirSync('dist/flags',{recursive:true});fs.readdirSync('src/flags').forEach(f=>fs.copyFileSync('src/flags/'+f,'dist/flags/'+f));console.log('Flags copied to dist/flags/')\"",
     "dev": "rollup -c -w",
     "prepare": "npm run build"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
-    "rollup": "^3.29.4"
+    "rollup": "^3.29.4",
+    "rollup-plugin-copy": "^3.5.0"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
     "vue": ">=3.0.0"
   },
   "peerDependenciesMeta": {
-    "react": { "optional": true },
-    "vue": { "optional": true }
+    "react": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
+    }
   },
-  "sideEffects": ["dist/style.css"]
+  "sideEffects": [
+    "dist/style.css"
+  ]
 }

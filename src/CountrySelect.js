@@ -13,8 +13,9 @@ const DEFAULTS = {
   multi: false,
   value: null,
   valueType: 'short',      // 'short' = code ('US') | 'long' = name ('United States')
-  flagType: 'emoji',       // 'emoji' | 'image' | 'none'
-  imageUrl: 'https://flagcdn.com/24x18/{code}.png',
+  flagType: 'emoji',       // 'emoji' | 'image' | 'png' | 'none'
+  imageUrl: 'https://flagcdn.com/24x18/{code}.png', // used when flagType='image'
+  flagsPath: null,         // base path to bundled PNG flags (flagType='png'), e.g. '/node_modules/country-flag-select/dist/flags'
   searchable: true,
   maxItems: null,
   onChange: null,
@@ -75,6 +76,13 @@ export default class CountryFlagSelect {
     if (this._opts.flagType === 'image') {
       const src = this._opts.imageUrl.replace('{code}', code.toLowerCase());
       return `<img src="${src}" alt="${code}" style="width:24px;height:18px;object-fit:cover;border-radius:2px;flex-shrink:0">`;
+    }
+    if (this._opts.flagType === 'png') {
+      const base = this._opts.flagsPath
+        ? this._opts.flagsPath.replace(/\/$/, '')
+        : './node_modules/country-flag-select/dist/flags';
+      const src = `${base}/${code.toLowerCase()}.png`;
+      return `<img src="${src}" alt="${code}" style="width:24px;height:16px;object-fit:cover;border-radius:2px;flex-shrink:0">`;
     }
     return getFlagEmoji(code);
   }
